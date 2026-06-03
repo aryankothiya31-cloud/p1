@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>document</title>
+</head>
+<body>
+
+    <img id="slider">
+    <button onclick="previous()">Previous</button>
+    <button onclick="next()">Next</button>
+
+    <script>
+        var sliderObj = {
+            images : ['img1.jpg','img2.jpg','img3.jpg'],
+            index : 0
+        };
+
+        document.getElementById("slider").src =
+        sliderObj.images[0];
+
+        function next()
+        {
+            sliderObj.index++;
+
+            if(sliderObj.index >= sliderObj.images.length)
+            {
+                sliderObj.index = 0;
+            }
+
+            document.getElementById("slider").src =
+            sliderObj.images[sliderObj.index];
+        }
+
+        function previous()
+        {
+            sliderObj.index--;
+            if(sliderObj.index < 0)
+            {
+                sliderObj.index = sliderObj.images.length - 1;
+            }
+            document.getElementById("slider").src =
+            sliderObj.images[sliderObj.index];
+        }
+
+    </script>
+
+</body>
+</html>
